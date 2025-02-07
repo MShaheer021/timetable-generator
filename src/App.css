@@ -12,3 +12,10 @@
   background-size: cover;
   padding: 1px;
 }
+.center{
+  width: 50%;
+  height: 100px;
+  margin: auto;
+  margin-top: 20%;
+  text-align: center;
+}
