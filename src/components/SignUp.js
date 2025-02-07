@@ -45,7 +45,8 @@ const SignUp = () => {
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <div>
                 <input
-                className='username'
+                style={{borderRadius:"15px", width: "100%", outline:'none'}}
+                className='user'
                     type="text"
                     placeholder="Username"
                     value={username}
@@ -66,7 +67,7 @@ const SignUp = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
             </div>
-            <button className='button' onClick={handleSignUp}>Sign Up</button>
+            <button className='button2' onClick={handleSignUp}>Sign Up</button>
         </div>
     );
 };

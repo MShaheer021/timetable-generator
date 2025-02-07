@@ -28,7 +28,7 @@ const ForgotPassword = () => {
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
-            <button className='button' onClick={handleReset}>Send Reset Link</button>
+            <button className='button3' onClick={handleReset}>Send Reset Link</button>
         </div>
     );
 };

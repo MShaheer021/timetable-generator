@@ -189,7 +189,7 @@ function App() {
         <div className='home'>
         <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
             <h1>Timetable Generator</h1>
-            <button onClick={toggleDarkMode}>
+            <button className='button1' onClick={toggleDarkMode}>
                 Switch to {isDarkMode ? 'Light' : 'Dark'} Mode
             </button>
 
@@ -205,7 +205,7 @@ function App() {
                     <option value="Theory">Theory</option>
                     <option value="Lab">Lab</option>
                 </select>
-                <button onClick={addCourse}>Add Course</button>
+                <button className='button1' onClick={addCourse}>Add Course</button>
             </div>
 
             <div className="form-section">
@@ -222,7 +222,7 @@ function App() {
                     onChange={(e) => setAvailabilityInput(e.target.value)}
                     placeholder="Enter availability (e.g., Mon 9-11)"
                 />
-                <button onClick={addFaculty}>Add Faculty</button>
+                <button className='button1' onClick={addFaculty}>Add Faculty</button>
             </div>
 
             <div className="form-section">
@@ -233,10 +233,10 @@ function App() {
                     onChange={(e) => setTotalClassrooms(Number(e.target.value))}
                     placeholder="Enter total number of classrooms"
                 />
-                <button onClick={setClassroomCount}>Set Classrooms</button>
+                <button className='button1' onClick={setClassroomCount}>Set Classrooms</button>
             </div>
 
-            <button onClick={verifyDetails}>Verify Details</button>
+            <button className='button1' onClick={verifyDetails}>Verify Details</button>
 
             {isVerified && (
                 <div>
@@ -255,7 +255,7 @@ function App() {
                     </ul>
                     <h3>Total Classrooms:</h3>
                     <p>{totalClassrooms}</p>
-                    <button onClick={generateTimetable}>Generate Timetable</button>
+                    <button className='button1' onClick={generateTimetable}>Generate Timetable</button>
                 </div>
             )}
 
@@ -286,8 +286,8 @@ function App() {
                             ))}
                         </tbody>
                     </table>
-                    <button onClick={downloadExcel}>Download as Excel</button>
-                    <button style={{marginLeft:"20px"}} onClick={downloadPDF}>Download as PDF</button>
+                    <button className='button1' onClick={downloadExcel}>Download as Excel</button>
+                    <button className='button1' style={{marginLeft:"20px"}} onClick={downloadPDF}>Download as PDF</button>
                 </div>
             )}
         </div>

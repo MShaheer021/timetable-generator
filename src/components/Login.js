@@ -32,7 +32,8 @@ const Login = () => {
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <div className='input-container'>
                 <input
-                    className='username'
+                    style={{borderRadius:"20px", width:"100%", outline: 'none'}}
+                    className='login'
                     type="text"
                     placeholder="Username"
                     value={username}
@@ -46,7 +47,7 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
-            <button onClick={handleLogin} className='button'>Login</button>
+            <button onClick={handleLogin} className='button1'>Login</button>
             <div className='forgotpass'>
                 <a href="/forgot-password">Forgot Password?</a>
             </div>

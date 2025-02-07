@@ -24,7 +24,7 @@
     margin-top: 10px;
 }
 
-.username, .password {
+.input-container .user{
     width: 100%;
     padding: 10px;
     margin: 7px 0;
@@ -32,11 +32,27 @@
     border: none;
     outline: none;
 }
-.button{
+.user{
+    width: 100%;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+.password {
+    width: 100%;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+.button2{
     margin: auto;
     width: 15vw;
     margin-top: 4px;
-    height: 4vh;
+    height: 6vh;
     border: none;
     letter-spacing: 2px;
     color: white;
