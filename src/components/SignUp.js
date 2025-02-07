@@ -35,7 +35,7 @@ const SignUp = () => {
         setError('');
 
         alert('User  created successfully! Redirecting to login...');
-        navigate('/login'); // Redirect to login page after successful signup
+        navigate('/login');
     };
 
     return (

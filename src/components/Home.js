@@ -14,7 +14,7 @@ function App() {
     const [facultyInput, setFacultyInput] = useState('');
     const [availabilityInput, setAvailabilityInput] = useState('');
     const [courseType, setCourseType] = useState('Theory');
-    const [isDarkMode, setIsDarkMode] = useState(false); // New state for dark mode
+    const [isDarkMode, setIsDarkMode] = useState(false); 
 
     const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
@@ -22,7 +22,7 @@ function App() {
         if (courseInput) {
             setCourses([...courses, { name: courseInput, type: courseType }]);
             setCourseInput('');
-            setCourseType('Theory'); // Reset to default
+            setCourseType('Theory');
         }
     };
 
@@ -58,37 +58,32 @@ function App() {
 
     const formatTime = (hour, minute) => {
         const period = hour >= 12 ? 'PM' : 'AM';
-        const formattedHour = hour % 12 === 0 ? 12 : hour % 12; // Convert to 12-hour format
-        const formattedMinute = minute < 10 ? '0' + minute : minute; // Add leading zero if needed
+        const formattedHour = hour % 12 === 0 ? 12 : hour % 12;
+        const formattedMinute = minute < 10 ? '0' + minute : minute;
         return `${formattedHour}:${formattedMinute} ${period}`;
     };
 
     const generateTimetable = () => {
         const newTimetable = [];
-        let startHour = 8; // Start at 8 AM
+        let startHour = 8; 
         let startMinute = 0;
 
-        // Track the last scheduled day for each course
         const lastScheduledDay = {};
 
-        // Create a schedule for each course
         courses.forEach((course, index) => {
-            const facultyMember = faculty[index % faculty.length]?.name || 'N/A'; // Assign faculty in a round-robin manner
-            const classroomNumber = (index % totalClassrooms) + 1; // Assign classroom based on index
+            const facultyMember = faculty[index % faculty.length]?.name || 'N/A'; 
+            const classroomNumber = (index % totalClassrooms) + 1; 
 
-            // Find a suitable day for the course
+
             for (let dayOffset = 0; dayOffset < daysOfWeek.length; dayOffset++) {
                 let dayIndex = (index + dayOffset) % daysOfWeek.length;
                 const day = daysOfWeek[dayIndex];
 
-                // Check if the course was scheduled in the last two days
                 if (!lastScheduledDay[course.name] || lastScheduledDay[course.name] !== day) {
                     if (course.type === 'Theory') {
-                        // Schedule two lectures for theory with a 2-day gap
                         const firstLectureDay = day;
                         const secondLectureDay = nextScheduledDay[firstLectureDay];
 
-                        // Schedule first lecture
                         const endHourFirst = Math.floor((startMinute + 75) / 60) + startHour;
                         const endMinuteFirst = (startMinute + 75) % 60;
 
@@ -101,14 +96,12 @@ function App() {
                             endTime: formatTime(endHourFirst, endMinuteFirst),
                         });
 
-                        // Update start time for the next class
-                        startMinute += 75 + 15; // Add 15 minutes break
+                        startMinute += 75 + 15;
                         if (startMinute >= 60) {
                             startHour += Math.floor(startMinute / 60);
                             startMinute = startMinute % 60;
                         }
 
-                        // Schedule second lecture
                         const endHourSecond = Math.floor((startMinute + 75) / 60) + startHour;
                         const endMinuteSecond = (startMinute + 75) % 60;
 
@@ -121,11 +114,9 @@ function App() {
                             endTime: formatTime(endHourSecond, endMinuteSecond),
                         });
 
-                        // Update the last scheduled day for this course
                         lastScheduledDay[course.name] = secondLectureDay;
 
                     } else if (course.type === 'Lab') {
-                        // Schedule one lab
                         const endHour = Math.floor((startMinute + 150) / 60) + startHour;
                         const endMinute = (startMinute + 150) % 60;
 
@@ -138,20 +129,18 @@ function App() {
                             endTime: formatTime(endHour, endMinute),
                         });
 
-                        // Update start time for the next class
-                        startMinute += 150 + 15; // Add 15 minutes break
+                        startMinute += 150 + 15; 
                         if (startMinute >= 60) {
                             startHour += Math.floor(startMinute / 60);
                             startMinute = startMinute % 60;
                         }
                     }
 
-                    // Stop scheduling if the last lecture starts after 5 PM
                     if (startHour >= 17) {
                         return;
                     }
 
-                    break; // Exit the loop once a suitable day is found
+                    break; 
                 }
             }
         });
@@ -160,7 +149,6 @@ function App() {
     };
 
     const downloadExcel = () => {
-        // Prepare the data for the Excel sheet
         const formattedData = timetable.map(entry => ({
             Course: entry.course,
             Faculty: entry.faculty,

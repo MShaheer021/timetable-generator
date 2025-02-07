@@ -20,7 +20,7 @@ const Login = () => {
         
         if (user) {
             console.log('Logging in with:', username, password);
-            navigate('/home'); // Redirect to home page after successful login
+            navigate('/home');
         } else {
             setError('Invalid username or password');
         }

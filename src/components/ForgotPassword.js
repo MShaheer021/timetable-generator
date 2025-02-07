@@ -10,8 +10,6 @@ const ForgotPassword = () => {
             setMessage('Please enter your email address.');
             return;
         }
-
-        // Simulate sending a reset link (in a real app, you would send a request to your backend)
         setMessage(`A password reset link has been sent to ${email}.`);
         setEmail('');
     };
