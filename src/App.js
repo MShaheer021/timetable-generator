@@ -32,7 +32,7 @@ const HomeWithButton = () => {
     return (
         <div className='center'>
             <h1>Welcome to the Time Table Generator</h1>
-            <button onClick={handleLoginClick}>Go to Login</button>
+            <button className='button1' onClick={handleLoginClick}>Go to Login</button>
         </div>
     );
 };
